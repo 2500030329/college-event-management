@@ -1,0 +1,27 @@
+
+from math import comb
+
+# Bayes theorem
+p_disease = 0.01
+p_positive_given_disease = 0.90
+p_positive_given_no_disease = 0.05
+
+p_positive = (
+    p_positive_given_disease * p_disease
+    + p_positive_given_no_disease * (1 - p_disease)
+)
+
+posterior = (
+    p_positive_given_disease * p_disease
+) / p_positive
+
+print("Probability of disease after positive test:",
+      round(posterior, 4))
+
+# Binomial distribution: n=5, p=0.5, X=2
+n = 5
+p = 0.5
+x = 2
+
+probability = comb(n, x) * p**x * (1-p)**(n-x)
+print("Binomial Probability:", round(probability, 4))
